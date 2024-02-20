@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="BDToolbox is your one-stop destination for a variety of tools and utilities designed to make your life easier. From calculators and converters to clocks and stopwatches, our website offers a range of handy tools tailored to meet your needs. Explore our collection of tools today and unlock the power of convenience with BDToolbox.">
+<meta name="keywords" content="BDToolbox, Bangladesh tools, utility tools, calculator, converter, stopwatch, clock, age calculator, BD utilities, online tools, handy tools">
+
+<meta name="author" content="MD SHAMIM RRR 007,md shamim,shamim,BDToolbox">
+  
+  <title>BDToolbox</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  
+  
+  <style>
+   body {
+    padding: 0px;
+    margin: 0px;
+    background-color: #1a2420; /* dark brown */
+    color: #302a17; /* dark green */
+}
+      
+  #calculator {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+  }
+
+  #display {
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 10px;
+    font-size: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+
+  .buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 5px;
+  }
+
+  .buttons button {
+    padding: 10px;
+    font-size: 18px;
+  }
+  
+  .digital-clock { 
+   font-size: 30px;
+   font-weight: bold; 
+   text-align: center; 
+   margin-top: 20px; 
+  }
+
+  .container {
+    text-align: center;
+    margin-top: 50px;
+  }
+
+  #stopwatch {
+    font-size: 36px;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+
+  .btn {
+    margin-right: 10px;
+  }
+</style>
+
+
+
+
+  
+</head>
+<body style="background-color: #0fffaf; color: #302a17;">
+  
+ <header class="jumbotron" style="background-color: #0fffaf; color: #302a17;">
+  <div class="container text-center">
+    <img src="./logo.png" alt="BDToolbox Logo" style="width: 150px; height: auto;">
+    <h1>Welcome to Our BDTOOLBOX</h1>
+    <div id="digital-clock" class="digital-clock"></div>
+  </div>
+</header>
+
+
+<section class="container">
+  <div class="row">
+    <div class="col-md-6 offset-md-3">
+      <h2>Stopwatch</h2>
+      <div id="stopwatch">00:00:00</div>
+      <button id="startStopwatch" class="btn btn-primary">Start</button>
+      <button id="stopStopwatch" class="btn btn-danger">Stop</button>
+      <button id="resetStopwatch" class="btn btn-secondary">Reset</button>
+    </div>
+  </div>
+</section>
+
+<br><br>
+<section class="container">
+  <div class="row">
+    <div class="col-md-6 offset-md-3">
+      <h2>Age Calculator</h2>
+      <form id="ageCalculatorForm">
+        <div class="form-group">
+          <label for="birthdate">Enter your birthdate:</label>
+          <input type="date" class="form-control" id="birthdate" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Calculate Age</button>
+      </form>
+      <div id="ageResult" class="mt-3"></div>
+    </div>
+  </div>
+</section>
+
+<br><br>
+<section class="container">
+  <div class="row">
+    <div class="col-md-6 offset-md-3">
+      <h2>Calculator</h2>
+      <div id="calculator">
+        <input type="text" id="display" class="form-control" readonly>
+        <div class="buttons">
+          <button class="btn btn-primary" onclick="appendToDisplay('7')">7</button>
+          <button class="btn btn-primary" onclick="appendToDisplay('8')">8</button>
+          <button class="btn btn-primary" onclick="appendToDisplay('9')">9</button>
+          <button class="btn btn-primary" onclick="appendOperator('+')">+</button>
+          <button class="btn btn-primary" onclick="appendToDisplay('4')">4</button>
+          <button class="btn btn-primary" onclick="appendToDisplay('5')">5</button>
+          <button class="btn btn-primary" onclick="appendToDisplay('6')">6</button>
+          <button class="btn btn-primary" onclick="appendOperator('-')">-</button>
+          <button class="btn btn-primary" onclick="appendToDisplay('1')">1</button>
+          <button class="btn btn-primary" onclick="appendToDisplay('2')">2</button>
+          <button class="btn btn-primary" onclick="appendToDisplay('3')">3</button>
+          <button class="btn btn-primary" onclick="appendOperator('*')">*</button>
+          <button class="btn btn-primary" onclick="appendToDisplay('0')">0</button>
+          <button class="btn btn-primary" onclick="appendToDisplay('.')">.</button>
+          <button class="btn btn-primary" onclick="clearEntry()">CE</button>
+          <button class="btn btn-primary" onclick="calculate()">=</button>
+          <button class="btn btn-primary" onclick="appendOperator('/')">/</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<br><br>
+<section class="container">
+  <div class="row">
+    <div class="col-md-6">
+      <img src="about_image.jpg" alt="About Image" class="img-fluid">
+    </div>
+    <div class="col-md-6">
+      <h2>About BDToolbox</h2>
+      <p>Welcome to BDToolbox - your ultimate destination for a wide range of handy tools and utilities designed to simplify your daily tasks. Whether you need to calculate, convert, or keep track of time, BDToolbox has got you covered.
+
+Explore our collection of intuitive and easy-to-use tools, including calculators for various mathematical operations, converters for currency and measurement units, and utility tools like stopwatches and clocks. Our tools are designed to be user-friendly, efficient, and accessible from any device, making them perfect for both personal and professional use.
+
+With BDToolbox, you can save time and effort by having all the essential tools you need in one convenient location. Whether you're a student, professional, or just someone looking to streamline your daily routines, BDToolbox is here to make your life easier.
+
+Start exploring now and discover the power of convenience with BDToolbox!
+
+
+</p>
+      
+    </div>
+  </div>
+</section>
+
+
+<br>
+<footer class="footer">
+  <div class="container text-center">
+    <p>&copy; 2024 BDToolbox</p>
+    <p>Follow us on <a href="https://www.facebook.com/bdtoolbox.2024" target="_blank">Facebook</a></p>
+  </div>
+</footer>
+
+
+
+<script>
+  function updateClock() {
+    var now = new Date();
+    var hours = now.getHours();
+    var minutes = now.getMinutes();
+    var seconds = now.getSeconds();
+    var ampm = hours >= 12 ? 'PM' : 'AM';
+    hours = hours % 12;
+    hours = hours ? hours : 12; // the hour '0' should be '12'
+    var month = now.toLocaleString('default', { month: 'short' });
+    var day = now.getDate();
+    var year = now.getFullYear();
+    var dateString = day + ' ' + month + ' ' + year;
+    var timeString = hours.toString().padStart(2, '0') + ':' + minutes.toString().padStart(2, '0') + ':' + seconds.toString().padStart(2, '0') + ' ' + ampm;
+    document.getElementById('digital-clock').textContent = timeString + ' ' + dateString;
+  }
+
+  setInterval(updateClock, 1000); // Update every second
+  
+  document.getElementById('ageCalculatorForm').addEventListener('submit', function(event) {
+    event.preventDefault();
+    var birthdate = new Date(document.getElementById('birthdate').value);
+    var today = new Date();
+    var age = today.getFullYear() - birthdate.getFullYear();
+    var m = today.getMonth() - birthdate.getMonth();
+    if (m < 0 || (m === 0 && today.getDate() < birthdate.getDate())) {
+      age--;
+    }
+    document.getElementById('ageResult').innerHTML = 'Your age is: ' + age + ' years old.';
+  });
+
+
+  var stopwatchInterval;
+  var stopwatchSeconds = 0;
+  var stopwatchMinutes = 0;
+  var stopwatchHours = 0;
+  var stopwatchDisplay = document.getElementById('stopwatch');
+
+  function startStopwatch() {
+    stopwatchInterval = setInterval(function() {
+      stopwatchSeconds++;
+      if (stopwatchSeconds / 60 === 1) {
+        stopwatchSeconds = 0;
+        stopwatchMinutes++;
+        if (stopwatchMinutes / 60 === 1) {
+          stopwatchMinutes = 0;
+          stopwatchHours++;
+        }
+      }
+      stopwatchDisplay.textContent = 
+        (stopwatchHours < 10 ? '0' + stopwatchHours : stopwatchHours) + ':' +
+        (stopwatchMinutes < 10 ? '0' + stopwatchMinutes : stopwatchMinutes) + ':' +
+        (stopwatchSeconds < 10 ? '0' + stopwatchSeconds : stopwatchSeconds);
+    }, 1000);
+  }
+
+  function stopStopwatch() {
+    clearInterval(stopwatchInterval);
+  }
+
+  function resetStopwatch() {
+    clearInterval(stopwatchInterval);
+    stopwatchSeconds = 0;
+    stopwatchMinutes = 0;
+    stopwatchHours = 0;
+    stopwatchDisplay.textContent = '00:00:00';
+  }
+
+  document.getElementById('startStopwatch').addEventListener('click', startStopwatch);
+  document.getElementById('stopStopwatch').addEventListener('click', stopStopwatch);
+  document.getElementById('resetStopwatch').addEventListener('click', resetStopwatch);
+
+
+
+  
+  
+  function appendToDisplay(value) {
+    document.getElementById('display').value += value;
+  }
+
+  function appendOperator(operator) {
+    var displayValue = document.getElementById('display').value;
+    var lastChar = displayValue.slice(-1);
+    if (lastChar !== '+' && lastChar !== '-' && lastChar !== '*' && lastChar !== '/' && displayValue !== '') {
+      document.getElementById('display').value += operator;
+    }
+  }
+
+  function clearEntry() {
+    document.getElementById('display').value = '';
+  }
+
+  function calculate() {
+    var expression = document.getElementById('display').value;
+    var result;
+    try {
+      result = eval(expression);
+    } catch (error) {
+      result = 'Error';
+    }
+    document.getElementById('display').value = result;
+  }
+</script>
+
+
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
